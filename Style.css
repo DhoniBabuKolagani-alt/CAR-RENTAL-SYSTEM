@@ -1,0 +1,161 @@
+```css
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* Header */
+header {
+    background: #222;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register,
+.primary-btn,
+.search-btn,
+.book-btn {
+    background: #007bff;
+    color: white;
+}
+
+/* Hero */
+.hero {
+    background: #333;
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 45px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* Search */
+.search-section {
+    background: white;
+    padding: 30px;
+    margin: 30px auto;
+    width: 85%;
+    text-align: center;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+input,
+select {
+    padding: 10px;
+}
+
+/* Cars */
+.cars-section,
+.features,
+.how-it-works,
+.contact {
+    padding: 40px;
+    text-align: center;
+}
+
+.car-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.car-card {
+    background: white;
+    width: 220px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.car-image {
+    background: #ddd;
+    padding: 35px;
+    font-size: 50px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.book-btn {
+    width: 100%;
+}
+
+/* Features */
+.feature-container,
+.steps,
+.admin-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature,
+.step,
+.admin-cards div {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+/* Admin */
+.admin-section {
+    background: #222;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.admin-cards div {
+    background: #333;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+```
