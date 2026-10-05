@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-label="DriveEasy car rental illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#15233b"/><stop offset="1" stop-color="#3d5e8c"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" x2="0" y1="0" y2="1">
+      <stop stop-color="#48566a"/><stop offset="1" stop-color="#1f2937"/>
+    </linearGradient>
+    <linearGradient id="car" x1="0" x2="1"><stop stop-color="#2d90ff"/><stop offset="1" stop-color="#0b57c5"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="15" stdDeviation="15" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1200" height="500" fill="url(#sky)"/>
+  <g opacity=".18" fill="#fff">
+    <rect x="60" y="180" width="95" height="140" rx="8"/><rect x="180" y="135" width="120" height="185" rx="8"/><rect x="330" y="165" width="100" height="155" rx="8"/>
+    <rect x="780" y="150" width="115" height="170" rx="8"/><rect x="920" y="120" width="130" height="200" rx="8"/><rect x="1075" y="175" width="75" height="145" rx="8"/>
+  </g>
+  <path d="M0 320 Q600 285 1200 320 L1200 500 L0 500Z" fill="url(#road)"/>
+  <path d="M0 408 H170 M255 408 H425 M510 408 H680 M765 408 H935 M1020 408 H1200" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+  <g filter="url(#shadow)" transform="translate(295 215)">
+    <path d="M75 145 L120 72 Q135 45 175 45 H430 Q466 45 487 78 L535 145 Q548 165 548 188 V225 H55 V188 Q55 164 75 145Z" fill="url(#car)"/>
+    <path d="M154 87 L180 55 H293 L310 87Z M326 87 L333 55 H425 Q452 55 468 87Z" fill="#d8e7ff" opacity=".95"/>
+    <circle cx="150" cy="225" r="48" fill="#111827"/><circle cx="150" cy="225" r="22" fill="#aeb8c9"/>
+    <circle cx="450" cy="225" r="48" fill="#111827"/><circle cx="450" cy="225" r="22" fill="#aeb8c9"/>
+    <rect x="72" y="154" width="47" height="24" rx="8" fill="#f8fbff"/><rect x="484" y="154" width="47" height="24" rx="8" fill="#f8fbff"/>
+    <rect x="240" y="156" width="114" height="24" rx="12" fill="#0d3e8e" opacity=".7"/>
+  </g>
+  <text x="600" y="75" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" opacity=".95">DriveEasy • Indian Car Rental</text>
+</svg>

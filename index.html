@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DriveEasy – Smart Indian Car Rental System. 100+ verified vehicles, nationwide coverage, automatic distance estimation, self-drive or chauffeur options, and transparent billing.">
+  <meta name="referrer" content="no-referrer">
+  <title>DriveEasy – Smart Indian Car Rental System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="logo-area" id="logoLink" title="DriveEasy Home">
+      <div class="logo-icon">🚗</div>
+      <div>
+        <div class="logo-text">DriveEasy</div>
+        <div class="logo-badge">Smart Indian Rental</div>
+      </div>
+    </div>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="#home" id="navHome" class="active">Home</a>
+      <a href="#cars" id="navCars">Cars</a>
+      <a href="#features" id="navFeatures">Why DriveEasy</a>
+      <a href="#support" id="navSupport">Support</a>
+      <a href="#systemSpecsModal" id="navSystemInfo" class="nav-highlight" aria-controls="systemSpecsModal" aria-haspopup="dialog">SDC Specs</a>
+      <a href="#dashboard" id="navDashboard" class="hidden">Dashboard</a>
+      <a href="#admin" id="navAdmin" class="hidden">Admin Panel</a>
+    </nav>
+
+    <div class="header-actions" id="headerActions">
+      <!-- Dynamic via script: Guest buttons or User Profile / Admin Badge -->
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       ENTRY SCREEN / PORTAL (VISIBLE WHEN NOT LOGGED IN OR VISITING ENTRY)
+       ========================================================================= -->
+  <section class="entry-portal-section" id="entryPortal" style="background-image: url('assets/hero-driveeasy.jpg');">
+    <div class="entry-portal-backdrop"></div>
+    <div class="entry-portal-content">
+      <div class="entry-portal-badge">
+        <span class="status-indicator"></span> NATIONWIDE DEMO FLEET • ANY INDIAN CITY
+      </div>
+      <h1 class="entry-portal-title">
+        Drive Your Way Across India.<br>
+        <span>Simple. Transparent. Reliable.</span>
+      </h1>
+      <p class="entry-portal-subtitle">
+        Explore 100+ verified cars from economy hatchbacks to luxury sedans. Select self-driving or professional driver, calculate automatic road distance, and enjoy zero hidden fees.
+      </p>
+
+      <!-- THREE DISTINCT PORTAL CHOICES -->
+      <div class="portal-cards-grid">
+        <!-- PORTAL OPTION 1: SIGN IN -->
+        <div class="portal-card signin-card" id="portalSignInCard">
+          <span class="portal-pill blue">Existing Customer</span>
+          <div class="portal-card-icon">🔑</div>
+          <h3>Customer Sign In</h3>
+          <p>Access your personal dashboard, view upcoming trips, manage existing bookings, and book in 1-click.</p>
+          <ul class="portal-features-list">
+            <li><span>✓</span> View trips & instant invoices</li>
+            <li><span>✓</span> Track active bookings in real-time</li>
+            <li><span>✓</span> Easy cancellation & re-booking</li>
+          </ul>
+          <button class="btn-primary btn-full" id="portalLoginBtn">Sign In to Dashboard</button>
+        </div>
+
+        <!-- PORTAL OPTION 2: SIGN UP -->
+        <div class="portal-card signup-card" id="portalSignUpCard">
+          <span class="portal-pill green">New Customer</span>
+          <div class="portal-card-icon">✨</div>
+          <h3>Create Account</h3>
+          <p>New to DriveEasy? Register in under a minute with your mobile number and get instant verified booking access.</p>
+          <ul class="portal-features-list">
+            <li><span>✓</span> Instant customer registration</li>
+            <li><span>✓</span> 100+ car models across India</li>
+            <li><span>✓</span> Completely transparent billing</li>
+          </ul>
+          <button class="btn-success btn-full" id="portalRegisterBtn">Register as Customer</button>
+        </div>
+
+        <!-- PORTAL OPTION 3: ADMIN -->
+        <div class="portal-card admin-card" id="portalAdminCard">
+          <span class="portal-pill purple">Fleet Operations</span>
+          <div class="portal-card-icon">⚙️</div>
+          <h3>Admin Operations</h3>
+          <p>Dedicated administrative control centre to manage inventory, update vehicle conditions, inspect bookings and view revenue.</p>
+          <ul class="portal-features-list">
+            <li><span>✓</span> Real-time vehicle condition chart</li>
+            <li><span>✓</span> Fleet availability & pricing CRUD</li>
+            <li><span>✓</span> Booking status transitions & KPIs</li>
+          </ul>
+          <button class="btn-secondary btn-full" id="portalAdminBtn">Open Admin Portal</button>
+        </div>
+      </div>
+
+      <div class="portal-live-strip">
+        <span><b class="status-indicator"></b> System Online</span>
+        <span id="liveClockDisplay">IST: --:--:--</span>
+        <span>🚘 102 Fleet Models</span>
+        <span>📍 80+ Pre-Mapped Cities + Any Location</span>
+        <span id="userStatusIndicator">Guest Mode</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CUSTOMER HERO SECTION (SHOWN TO LOGGED IN CUSTOMERS OR EXPLORATION)
+       ========================================================================= -->
+  <section class="hero-section hidden" id="customerHero" style="background-image: url('assets/hero-driveeasy.jpg');">
+    <div class="hero-backdrop"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">SMART INDIAN CAR RENTAL SYSTEM</div>
+      <h1 class="hero-title">Rent Your Dream Car.<br><span>Drive With Complete Confidence.</span></h1>
+      <p class="hero-description">
+        Choose from 102 verified car models across India. Transparent fares with daily rate, automatic road distance calculation, and optional driver fee.
+      </p>
+      <div class="hero-highlights">
+        <div class="hero-highlight-item"><span>✓</span> 102 Verified Car Models</div>
+        <div class="hero-highlight-item"><span>✓</span> Any Indian City Route</div>
+        <div class="hero-highlight-item"><span>✓</span> Self Driving or Chauffeur</div>
+        <div class="hero-highlight-item"><span>✓</span> Zero Hidden Charges</div>
+      </div>
+      <div>
+        <button class="btn-primary" id="heroBrowseCarsBtn">Browse 100+ Cars</button>
+        <button class="btn-secondary" id="heroViewDashboardBtn">My Trips & Dashboard</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEARCH BOX SECTION (NO DISTANCE INPUT FIELD)
+       ========================================================================= -->
+  <section class="search-section" id="searchSection">
+    <div class="search-box-card">
+      <form id="carSearchForm">
+        <div class="search-form-grid">
+          <!-- FROM / PICKUP -->
+          <div class="form-group">
+            <label for="pickupCityInput">📍 Pickup City / Location</label>
+            <input type="text" id="pickupCityInput" list="citySuggestions" placeholder="e.g. Vijayawada or any city" required autocomplete="off">
+            <datalist id="citySuggestions"></datalist>
+          </div>
+
+          <!-- TO / DESTINATION -->
+          <div class="form-group">
+            <label for="destCityInput">🎯 Destination City</label>
+            <input type="text" id="destCityInput" list="citySuggestions" placeholder="e.g. Hyderabad or any city" required autocomplete="off">
+          </div>
+
+          <!-- PICKUP DATE -->
+          <div class="form-group">
+            <label for="pickupDateInput">📅 Pickup Date</label>
+            <input type="date" id="pickupDateInput" required>
+          </div>
+
+          <!-- RETURN DATE -->
+          <div class="form-group">
+            <label for="returnDateInput">📅 Return Date</label>
+            <input type="date" id="returnDateInput" required>
+          </div>
+
+          <!-- CAR TYPE -->
+          <div class="form-group">
+            <label for="carTypeSelect">🚗 Vehicle Segment</label>
+            <select id="carTypeSelect">
+              <option value="All Cars">All Segments (100+)</option>
+              <option value="Hatchback">Hatchback</option>
+              <option value="Sedan">Sedan</option>
+              <option value="SUV">SUV</option>
+              <option value="MUV">MUV</option>
+              <option value="Luxury">Luxury / Premium</option>
+              <option value="EV">Electric (EV)</option>
+            </select>
+          </div>
+
+          <!-- SUBMIT -->
+          <button type="submit" class="search-submit-btn" id="searchSubmitBtn">
+            <span>🔍 Search Cars</span>
+          </button>
+
+          <!-- RESET -->
+          <button type="button" class="search-reset-btn" id="searchResetBtn" title="Reset Search">
+            Reset
+          </button>
+        </div>
+      </form>
+
+      <div class="search-info-bar" id="searchInfoBar">
+        <div>
+          Showing cars for: <strong id="currentRouteDisplay">Vijayawada → Hyderabad</strong>
+          <span class="route-dist-badge" id="currentDistanceBadge">~295 km estimated</span>
+        </div>
+        <div id="searchDatesDisplay">Rental Duration: 1 Day</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CUSTOMER DASHBOARD SECTION
+       ========================================================================= -->
+  <section class="customer-dashboard-section hidden" id="customerDashboardSection">
+    <div class="dashboard-welcome-banner">
+      <div class="dashboard-welcome-text">
+        <h2 id="dashboardGreeting">Welcome back!</h2>
+        <p id="dashboardUserMeta">Customer ID: U1001 • Vijayawada</p>
+      </div>
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="btn-primary" id="dashboardQuickBookBtn">🔍 Search & Book Cars</button>
+        <button class="btn-secondary" id="dashboardRefreshBtn">🔄 Refresh</button>
+      </div>
+    </div>
+
+    <!-- KPI STATS CARDS -->
+    <div class="dashboard-stats-grid">
+      <div class="dashboard-stat-card">
+        <div class="stat-icon-wrap blue">🚗</div>
+        <div class="stat-info">
+          <strong id="statTotalBookings">0</strong>
+          <span>Total Bookings</span>
+        </div>
+      </div>
+      <div class="dashboard-stat-card">
+        <div class="stat-icon-wrap green">⚡</div>
+        <div class="stat-info">
+          <strong id="statActiveBookings">0</strong>
+          <span>Active Bookings</span>
+        </div>
+      </div>
+      <div class="dashboard-stat-card">
+        <div class="stat-icon-wrap purple">📅</div>
+        <div class="stat-info">
+          <strong id="statUpcomingBookings">0</strong>
+          <span>Upcoming Trips</span>
+        </div>
+      </div>
+      <div class="dashboard-stat-card">
+        <div class="stat-icon-wrap gold">✅</div>
+        <div class="stat-info">
+          <strong id="statCompletedBookings">0</strong>
+          <span>Completed</span>
+        </div>
+      </div>
+      <div class="dashboard-stat-card">
+        <div class="stat-icon-wrap green">💰</div>
+        <div class="stat-info">
+          <strong id="statTotalSpent">₹0</strong>
+          <span>Total Spent</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOKINGS LIST -->
+    <div class="dashboard-bookings-panel">
+      <div class="panel-header-row">
+        <div>
+          <h3>My Bookings & Trip History</h3>
+          <p>Transparent fare details, estimated kilometres, driving options, and cancellation controls.</p>
+        </div>
+        <span class="catalog-count-pill" id="dashboardBookingsCount">0 bookings</span>
+      </div>
+
+      <div class="booking-cards-list" id="customerBookingsList">
+        <!-- Rendered via script -->
+      </div>
+    </div>
+
+    <!-- CUSTOMER RENTAL PROBLEMS SOLVED & CHECKLIST -->
+    <div class="customer-rental-features">
+      <div class="feature-benefit-card">
+        <div class="feature-benefit-icon">💳</div>
+        <div>
+          <h4>Transparent Breakdown</h4>
+          <p>Every rupee accounted for: car daily rate, per-km distance charge, optional driver fee, and 5% GST itemized.</p>
+        </div>
+      </div>
+      <div class="feature-benefit-card">
+        <div class="feature-benefit-icon">📸</div>
+        <div>
+          <h4>Pickup & Return Checklist</h4>
+          <p>Take 4 exterior photos at pickup and inspect the fuel/battery gauge and odometer for a 100% dispute-free return.</p>
+        </div>
+      </div>
+      <div class="feature-benefit-card">
+        <div class="feature-benefit-icon">🛡️</div>
+        <div>
+          <h4>24x7 Roadside Assistance</h4>
+          <p>Emergency breakdown, towing support, and flat tire help across all Indian national highways: 1800-DRIVEEASY.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CAR CATALOG & INVENTORY SECTION (100+ CARS)
+       ========================================================================= -->
+  <section class="catalog-section" id="carsSection">
+    <div class="catalog-header">
+      <div>
+        <h2>Available Fleet Vehicles</h2>
+        <p>Real model-specific vehicles available for your selected route. Fares update live based on your dates and destination.</p>
+      </div>
+      <div class="catalog-count-pill" id="catalogCountPill">102 Cars Available</div>
+    </div>
+
+    <!-- FILTER & SORT CONTROLS -->
+    <div class="filter-controls-bar">
+      <div class="filter-category-tabs" id="typeFilterTabs">
+        <button class="filter-tab-btn active" data-type="All Cars">All Cars</button>
+        <button class="filter-tab-btn" data-type="Hatchback">Hatchbacks</button>
+        <button class="filter-tab-btn" data-type="Sedan">Sedans</button>
+        <button class="filter-tab-btn" data-type="SUV">SUVs</button>
+        <button class="filter-tab-btn" data-type="MUV">MUVs</button>
+        <button class="filter-tab-btn" data-type="Luxury">Luxury</button>
+        <button class="filter-tab-btn" data-type="EV">EVs</button>
+      </div>
+
+      <div class="filter-auxiliary">
+        <!-- Fuel Filter -->
+        <select id="fuelFilterSelect" title="Filter by Fuel Type">
+          <option value="All">All Fuels</option>
+          <option value="Petrol">Petrol</option>
+          <option value="Diesel">Diesel</option>
+          <option value="EV">Electric (EV)</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+
+        <!-- Transmission Filter -->
+        <select id="transFilterSelect" title="Filter by Transmission">
+          <option value="All">All Transmissions</option>
+          <option value="Automatic">Automatic</option>
+          <option value="Manual">Manual</option>
+        </select>
+
+        <!-- Sort By -->
+        <select id="sortCarsSelect" title="Sort Cars">
+          <option value="popular">Popularity</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="seats">Seats: Max First</option>
+          <option value="newest">Newest Models</option>
+        </select>
+
+        <!-- Search Input -->
+        <input type="text" id="carModelSearchInput" placeholder="Search by model or brand...">
+      </div>
+    </div>
+
+    <!-- CARS GRID -->
+    <div class="cars-grid" id="carsContainer">
+      <!-- 100+ car cards rendered dynamically -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ADMIN CONTROL CENTRE (STRICTLY FOR ADMINS)
+       ========================================================================= -->
+  <section class="admin-control-section hidden" id="adminControlSection">
+    <div class="admin-header-strip">
+      <div class="admin-title-area">
+        <h2><span>🛡️</span> DriveEasy Operations Command Centre</h2>
+        <p>Monitor real-time fleet availability, vehicle condition analytics, booking volume, and customer accounts.</p>
+      </div>
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="btn-primary" id="adminAddCarBtn">+ Add New Vehicle</button>
+        <button class="btn-secondary" id="adminRefreshBtn">🔄 Refresh Stats</button>
+        <button class="btn-danger" id="adminLogoutBtn">Admin Logout</button>
+      </div>
+    </div>
+
+    <!-- ADMIN KPI METRICS -->
+    <div class="admin-kpi-grid">
+      <div class="admin-kpi-card">
+        <span>Total Vehicles</span>
+        <strong id="kpiTotalVehicles">102</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Available Now</span>
+        <strong id="kpiAvailableVehicles" style="color: #34d399;">0</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Booked Vehicles</span>
+        <strong id="kpiBookedVehicles" style="color: #60a5fa;">0</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Service / Maint.</span>
+        <strong id="kpiMaintenanceVehicles" style="color: #fbbf24;">0</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Total Customers</span>
+        <strong id="kpiTotalCustomers">0</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Total Bookings</span>
+        <strong id="kpiTotalBookings">0</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Active Bookings</span>
+        <strong id="kpiActiveBookings" style="color: #38bdf8;">0</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Cancelled</span>
+        <strong id="kpiCancelledBookings" style="color: #f87171;">0</strong>
+      </div>
+      <div class="admin-kpi-card">
+        <span>Total Revenue</span>
+        <strong id="kpiTotalRevenue" style="color: #34d399;">₹0</strong>
+      </div>
+    </div>
+
+    <!-- INSIGHTS GRID: DYNAMIC VEHICLE CONDITION CHART & BOOKED VEHICLES -->
+    <div class="admin-insights-grid">
+      <!-- DYNAMIC VEHICLE CONDITION PIE / DOUGHNUT CHART -->
+      <div class="admin-insight-card">
+        <div class="insight-card-header">
+          <h3>Vehicle Fleet Condition Breakdown</h3>
+          <p>Real-time telemetry of physical conditions. Updates automatically when vehicle condition changes.</p>
+        </div>
+        <div class="chart-container-flex">
+          <div class="doughnut-chart-wrapper" id="conditionDoughnutChart">
+            <div class="doughnut-center-hole">
+              <strong id="chartTotalVehicles">102</strong>
+              <span>Fleet Total</span>
+            </div>
+          </div>
+          <div class="chart-legend-list" id="conditionChartLegend">
+            <!-- Legend items filled via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- CURRENTLY BOOKED VEHICLES SNAPSHOT -->
+      <div class="admin-insight-card">
+        <div class="insight-card-header">
+          <h3>Currently Booked Vehicles</h3>
+          <p>Real-time list of cars currently out on rental or confirmed for upcoming dates.</p>
+        </div>
+        <div class="mini-table-wrap">
+          <table class="mini-table">
+            <thead>
+              <tr>
+                <th>Car</th>
+                <th>Customer</th>
+                <th>Booking ID</th>
+                <th>Route</th>
+                <th>Dates</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="adminBookedVehiclesTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN TABS NAVIGATION -->
+    <div class="admin-tabs-nav">
+      <button class="admin-tab-btn active" id="tabBtnFleet" data-tab="fleet">Fleet Vehicles (102)</button>
+      <button class="admin-tab-btn" id="tabBtnBookings" data-tab="bookings">All Customer Bookings</button>
+      <button class="admin-tab-btn" id="tabBtnCustomers" data-tab="customers">Customer Directory</button>
+    </div>
+
+    <!-- TAB 1: FLEET VEHICLES MANAGEMENT -->
+    <div class="admin-table-container" id="adminFleetTabContent">
+      <div class="table-title-row">
+        <h3>Manage Vehicle Inventory & Conditions</h3>
+        <input type="text" id="adminCarSearchInput" placeholder="Filter vehicles..." style="background: rgba(15,23,42,0.85); border: 1px solid var(--border-subtle); padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
+      </div>
+      <table class="admin-data-table">
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Type</th>
+            <th>Condition</th>
+            <th>Daily Rate</th>
+            <th>Per-KM</th>
+            <th>Driver / Day</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="adminVehiclesTableBody">
+          <!-- Rendered via JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TAB 2: ALL CUSTOMER BOOKINGS -->
+    <div class="admin-table-container hidden" id="adminBookingsTabContent">
+      <div class="table-title-row">
+        <h3>All Customer Bookings & Invoices</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Change booking status to update customer dashboard live.</p>
+      </div>
+      <table class="admin-data-table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Customer</th>
+            <th>Car</th>
+            <th>Route & Distance</th>
+            <th>Dates & Days</th>
+            <th>Driving Mode</th>
+            <th>Fare Total</th>
+            <th>Payment</th>
+            <th>Booking Status</th>
+          </tr>
+        </thead>
+        <tbody id="adminBookingsTableBody">
+          <!-- Rendered via JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TAB 3: CUSTOMER DIRECTORY -->
+    <div class="admin-table-container hidden" id="adminCustomersTabContent">
+      <div class="table-title-row">
+        <h3>Registered Customers</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">View customer profiles and trip spending history.</p>
+      </div>
+      <table class="admin-data-table">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th>Total Bookings</th>
+            <th>Total Spent</th>
+            <th>Last Booking Date</th>
+          </tr>
+        </thead>
+        <tbody id="adminCustomersTableBody">
+          <!-- Rendered via JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FEATURES / WHY CHOOSE DRIVEEASY SECTION
+       ========================================================================= -->
+  <section class="catalog-section" id="features">
+    <div class="catalog-header">
+      <div>
+        <h2>Why Choose DriveEasy?</h2>
+        <p>Built for Indian travelers with complete transparency, verified vehicles, and nationwide availability.</p>
+      </div>
+    </div>
+    <div class="portal-cards-grid">
+      <div class="portal-card">
+        <div class="portal-card-icon">🚗</div>
+        <h3>100+ Real Car Models</h3>
+        <p>From the budget Tata Nano and Maruti Swift to Mahindra Thar Roxx and BMW 3 Series, see the exact photo and specifications before booking.</p>
+      </div>
+      <div class="portal-card">
+        <div class="portal-card-icon">📍</div>
+        <h3>Any Indian Location</h3>
+        <p>Enter any Indian city or town—Vijayawada, Guntur, Hyderabad, Bengaluru, or remote destinations. Automatic road distance estimation included.</p>
+      </div>
+      <div class="portal-card">
+        <div class="portal-card-icon">🧾</div>
+        <h3>Zero Hidden Charges</h3>
+        <p>Clear, invoice-grade itemized billing showing car days, per-km distance fee, driver charges, and GST with direct Self-Drive comparisons.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CONTACT & SUPPORT SECTION
+       ========================================================================= -->
+  <section class="catalog-section" id="support">
+    <div class="catalog-header">
+      <div>
+        <h2>Contact & Customer Support</h2>
+        <p>We are here 24 hours a day to assist with your rental needs, vehicle pickups, and emergency road assistance.</p>
+      </div>
+    </div>
+    <div class="dashboard-welcome-banner" style="background: rgba(15, 23, 42, 0.7); border-color: var(--border-subtle);">
+      <div>
+        <h3>24x7 Roadside & Booking Helpdesk</h3>
+        <p>📞 Phone: +91 98765 43210 &nbsp;|&nbsp; 📧 Email: support@driveeasy.in &nbsp;|&nbsp; 🚨 Toll-Free: 1800-DRIVEEASY</p>
+        <p style="margin-top: 0.5rem; font-size: 0.88rem; color: var(--accent);">Operational in Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, Maharashtra, Delhi NCR, and nationwide.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>DriveEasy</h3>
+        <p>Smart Indian Car Rental System. 100+ verified vehicles, real model photographs, distance-based pricing, and full customer transparency.</p>
+        <p style="margin-top: 0.85rem; font-size: 0.8rem; color: var(--text-muted);">© 2026 DriveEasy Technologies Pvt. Ltd. All rights reserved.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#cars">Car Inventory (100+)</a></li>
+          <li><a href="#features">Why DriveEasy</a></li>
+          <li><a href="#support">Support & FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Vehicles</h4>
+        <ul>
+          <li><a href="#cars">Hatchbacks & Sedans</a></li>
+          <li><a href="#cars">Compact & Full SUVs</a></li>
+          <li><a href="#cars">Electric Vehicles (EV)</a></li>
+          <li><a href="#cars">Luxury Fleet</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Operations</h4>
+        <ul>
+          <li><a href="#" id="footerAdminLink">Admin Portal</a></li>
+          <li><a href="#support">Emergency Helpline</a></li>
+          <li><a href="#features">Inspection Checklist</a></li>
+          <li><a href="#features">Cancellation Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>DriveEasy – Smart Indian Car Rental System • HTML5 • CSS3 • JavaScript</span>
+      <span>Built with Real Indian Vehicle Inventory & Telemetry</span>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODAL 1: CUSTOMER SIGN IN & SIGN UP (TABBED)
+       ========================================================================= -->
+  <div class="modal-overlay hidden" id="authModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeAuthModalBtn">×</button>
+      <div class="modal-body">
+        <div class="modal-tabs-header">
+          <button class="modal-tab-toggle active" id="tabAuthLogin">Sign In</button>
+          <button class="modal-tab-toggle" id="tabAuthRegister">Create Account</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="customerLoginForm" class="auth-form-body">
+          <div>
+            <h2>Welcome Back</h2>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Sign in to manage trips and book vehicles instantly.</p>
+          </div>
+          <div class="form-group">
+            <label for="loginEmailInput">Email Address</label>
+            <input type="email" id="loginEmailInput" placeholder="e.g. aarav@gmail.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="loginPasswordInput">Password</label>
+            <input type="password" id="loginPasswordInput" placeholder="Enter your password" required autocomplete="current-password">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+            <label style="display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+              <input type="checkbox" id="loginRememberMe"> Remember Me
+            </label>
+            <a href="#" id="forgotPasswordLink" style="color: var(--accent);">Forgot Password?</a>
+          </div>
+          <div class="demo-credentials-callout">
+            Demo Customer: <strong>aarav@gmail.com</strong> / <strong>Aarav@123</strong>
+          </div>
+          <button type="submit" class="btn-primary btn-full">Sign In to Dashboard</button>
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form id="customerRegisterForm" class="auth-form-body hidden">
+          <div>
+            <h2>Create Your Account</h2>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Join DriveEasy for fast, transparent car rental across India.</p>
+          </div>
+          <div class="form-group">
+            <label for="regNameInput">Full Name</label>
+            <input type="text" id="regNameInput" placeholder="e.g. Lakshmi Priya" required minlength="3">
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="regPhoneInput">Mobile Number</label>
+              <input type="tel" id="regPhoneInput" placeholder="10-digit Indian mobile" required pattern="[6-9][0-9]{9}">
+            </div>
+            <div class="form-group">
+              <label for="regCityInput">Your City</label>
+              <input type="text" id="regCityInput" placeholder="e.g. Vijayawada" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regEmailInput">Email Address</label>
+            <input type="email" id="regEmailInput" placeholder="yourname@gmail.com" required>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="regPasswordInput">Password</label>
+              <input type="password" id="regPasswordInput" placeholder="Min 6 characters" required minlength="6">
+            </div>
+            <div class="form-group">
+              <label for="regConfirmPasswordInput">Confirm Password</label>
+              <input type="password" id="regConfirmPasswordInput" placeholder="Re-type password" required minlength="6">
+            </div>
+          </div>
+          <div class="form-checkbox-row">
+            <input type="checkbox" id="regTermsCheckbox" required>
+            <label for="regTermsCheckbox">I agree to the Terms & Conditions and transparent rental guidelines.</label>
+          </div>
+          <button type="submit" class="btn-success btn-full">Complete Registration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: ADMIN LOGIN (SEPARATE INTERFACE)
+       ========================================================================= -->
+  <div class="modal-overlay hidden" id="adminLoginModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeAdminLoginModalBtn">×</button>
+      <div class="modal-body">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛡️</div>
+          <h2>Admin Control Centre</h2>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Restricted administrative access for fleet operations.</p>
+        </div>
+        <form id="adminLoginForm" class="auth-form-body">
+          <div class="form-group">
+            <label for="adminEmailInput">Admin Email</label>
+            <input type="email" id="adminEmailInput" value="admin@driveeasy.in" required>
+          </div>
+          <div class="form-group">
+            <label for="adminPasswordInput">Admin Password</label>
+            <input type="password" id="adminPasswordInput" value="Admin@123" required>
+          </div>
+          <div class="demo-credentials-callout" style="background: rgba(124, 58, 237, 0.15); border-color: rgba(124, 58, 237, 0.3); color: #c084fc;">
+            Default Credentials: <strong>admin@driveeasy.in</strong> / <strong>Admin@123</strong>
+          </div>
+          <button type="submit" class="btn-primary btn-full" style="background: linear-gradient(135deg, #4f46e5, #7c3aed);">Authenticate as Admin</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: TRANSPARENT INVOICE / BOOKING & PAYMENT MODAL
+       ========================================================================= -->
+  <div class="modal-overlay hidden" id="bookingModal" aria-hidden="true">
+    <div class="modal-dialog modal-large">
+      <button class="modal-close-btn" id="closeBookingModalBtn">×</button>
+      <div class="modal-body">
+        <div style="margin-bottom: 1.5rem;">
+          <span class="entry-portal-badge" style="margin-bottom: 0.5rem;">TRANSPARENT CHECKOUT</span>
+          <h2>Review Booking & Confirm</h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Estimated kilometres are calculated from your route. The bill updates dynamically with your selections.</p>
+        </div>
+
+        <form id="bookingCheckoutForm">
+          <input type="hidden" id="checkoutCarId">
+          <div class="booking-checkout-grid">
+            <!-- LEFT COLUMN: CAR & ROUTE SUMMARY -->
+            <div>
+              <div class="checkout-car-preview-card">
+                <img id="checkoutCarPhoto" class="checkout-car-image" src="" alt="Car Photo">
+                <div>
+                  <h3 id="checkoutCarTitle">Vehicle Name</h3>
+                  <p id="checkoutCarMeta" style="font-size: 0.85rem; color: var(--text-secondary);">Manual • 5 Seats • Petrol • Good</p>
+                </div>
+                <div class="checkout-route-badge">
+                  <div>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">TRAVEL ROUTE</span>
+                    <strong id="checkoutRouteTitle">Vijayawada → Hyderabad</strong>
+                  </div>
+                  <div>
+                    <span id="checkoutDistanceKm">295 km</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- EDITABLE ROUTE IN CHECKOUT -->
+              <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="checkoutPickupCity">Pickup City</label>
+                    <input type="text" id="checkoutPickupCity" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="checkoutDestCity">Destination City</label>
+                    <input type="text" id="checkoutDestCity" required>
+                  </div>
+                </div>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="checkoutPickupDate">Pickup Date</label>
+                    <input type="date" id="checkoutPickupDate" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="checkoutReturnDate">Return Date</label>
+                    <input type="date" id="checkoutReturnDate" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: DRIVER TOGGLE & TRANSPARENT BILL -->
+            <div>
+              <!-- DRIVING MODE RADIO -->
+              <label style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; display: block; margin-bottom: 0.5rem;">
+                Driving Option (Mandatory)
+              </label>
+              <div class="driving-mode-selector">
+                <label class="driving-mode-option selected" id="optSelfDrive">
+                  <input type="radio" name="drivingModeRadio" value="self" checked>
+                  <div class="driving-mode-title">Self Driving</div>
+                  <div class="driving-mode-desc">Drive yourself freely</div>
+                  <div class="driving-mode-fee">Driver Fee: ₹0</div>
+                </label>
+                <label class="driving-mode-option" id="optDriverRequired">
+                  <input type="radio" name="drivingModeRadio" value="driver">
+                  <div class="driving-mode-title">Driver Required</div>
+                  <div class="driving-mode-desc">Verified commercial chauffeur</div>
+                  <div class="driving-mode-fee" id="checkoutDriverFeeLabel">+ ₹750/day</div>
+                </label>
+              </div>
+
+              <!-- TRANSPARENT INVOICE TABLE -->
+              <div class="invoice-bill-card">
+                <div class="invoice-bill-title">
+                  <h4>Transparent Price Breakdown</h4>
+                  <span class="route-dist-badge" id="checkoutDurationBadge">1 Day</span>
+                </div>
+                <table class="invoice-table">
+                  <tbody>
+                    <tr>
+                      <th>Car Base Rate (<span id="invoiceDailyRate">₹1,500</span> × <span id="invoiceDays">1</span> day)</th>
+                      <td id="invoiceBaseAmount">₹1,500</td>
+                    </tr>
+                    <tr>
+                      <th>Distance Charge (<span id="invoicePerKm">₹10</span>/km × <span id="invoiceKm">295</span> km)</th>
+                      <td id="invoiceDistanceAmount">₹2,950</td>
+                    </tr>
+                    <tr>
+                      <th>Chauffeur / Driver Fee</th>
+                      <td id="invoiceDriverAmount">₹0</td>
+                    </tr>
+                    <tr>
+                      <th>Goods & Services Tax (5% GST)</th>
+                      <td id="invoiceTaxAmount">₹223</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="invoice-divider"></div>
+                <div class="invoice-total-row">
+                  <div>
+                    <span style="font-size: 0.82rem; color: var(--text-muted); display: block;">NET PAYABLE TOTAL</span>
+                    <strong id="invoiceTotalAmount">₹4,673</strong>
+                  </div>
+                  <div style="font-size: 0.8rem; color: var(--accent-emerald); font-weight: 600;">
+                    ✓ Zero Hidden Fees
+                  </div>
+                </div>
+
+                <!-- SIDE-BY-SIDE COMPARISON STRIP -->
+                <div class="invoice-comparison-strip">
+                  <span>Self Driving: <strong id="compareSelfTotal">₹4,673</strong></span>
+                  <span>With Driver: <strong id="compareDriverTotal">₹5,460</strong></span>
+                </div>
+              </div>
+
+              <!-- PAYMENT METHOD -->
+              <div class="form-group" style="margin-top: 1rem;">
+                <label for="checkoutPaymentMethod">Payment Mode (Simulated)</label>
+                <select id="checkoutPaymentMethod" required>
+                  <option value="UPI">UPI (Google Pay / PhonePe / Paytm)</option>
+                  <option value="Debit / Credit Card">Debit / Credit Card (Visa / Mastercard / RuPay)</option>
+                  <option value="Net Banking">Net Banking (All Indian Banks)</option>
+                  <option value="Cash on Pickup">Cash on Vehicle Pickup</option>
+                </select>
+              </div>
+
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.65rem;">
+                🔒 Simulated secure payment demo. Instant confirmation ID generated.
+              </div>
+
+              <button type="submit" class="btn-primary btn-full" id="confirmBookingBtn" style="margin-top: 1rem; padding: 0.85rem;">
+                Confirm Booking & Generate ID
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: CAR DETAILS MODAL
+       ========================================================================= -->
+  <div class="modal-overlay hidden" id="carDetailsModal" aria-hidden="true">
+    <div class="modal-dialog modal-large">
+      <button class="modal-close-btn" id="closeCarDetailsModalBtn">×</button>
+      <div class="modal-body">
+        <div class="car-details-grid">
+          <div>
+            <div class="car-details-photo-box">
+              <img id="detailsCarPhoto" src="" alt="Car Photo">
+            </div>
+            <div style="margin-top: 1rem;">
+              <span class="car-brand-name" id="detailsCarBrand">TATA</span>
+              <h2 id="detailsCarTitle">Tata Safari Accomplished</h2>
+              <p id="detailsCarDesc" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                Vehicle description...
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel-title-row" style="margin-bottom: 0.75rem;">
+              <h3>Vehicle Specifications</h3>
+              <span class="car-condition-badge condition-excellent" id="detailsCarCondition">Excellent</span>
+            </div>
+            <div class="car-details-meta-grid">
+              <div class="details-meta-item">
+                <span>SEGMENT</span>
+                <strong id="detailsCarType">SUV</strong>
+              </div>
+              <div class="details-meta-item">
+                <span>SEATS</span>
+                <strong id="detailsCarSeats">7 Seater</strong>
+              </div>
+              <div class="details-meta-item">
+                <span>FUEL TYPE</span>
+                <strong id="detailsCarFuel">Diesel</strong>
+              </div>
+              <div class="details-meta-item">
+                <span>TRANSMISSION</span>
+                <strong id="detailsCarTrans">Automatic</strong>
+              </div>
+              <div class="details-meta-item">
+                <span>REGISTRATION NO.</span>
+                <strong id="detailsCarReg">TS 07 DE 1009</strong>
+              </div>
+              <div class="details-meta-item">
+                <span>MODEL YEAR</span>
+                <strong id="detailsCarYear">2024</strong>
+              </div>
+            </div>
+
+            <!-- RATES SUMMARY IN DETAILS -->
+            <div class="car-rates-block" style="margin-bottom: 1.5rem;">
+              <div class="car-rate-primary">
+                <strong id="detailsDailyRate">₹2,800/day</strong>
+                <span>Base 24-hr rental</span>
+              </div>
+              <div class="car-rate-secondary">
+                <span id="detailsPerKmRate">Distance: ₹14/km</span>
+                <span id="detailsDriverRate">Chauffeur: ₹950/day</span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <button class="btn-primary btn-full" id="detailsBookNowBtn">Book This Vehicle</button>
+              <button class="btn-secondary btn-full" id="detailsCloseBtn">Back to Inventory</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 5: ADMIN VEHICLE ADD/EDIT MODAL
+       ========================================================================= -->
+  <div class="modal-overlay hidden" id="adminVehicleModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeAdminVehicleModalBtn">×</button>
+      <div class="modal-body">
+        <h2 id="adminVehicleModalTitle" style="margin-bottom: 1rem;">Add New Vehicle</h2>
+        <form id="adminVehicleForm" class="auth-form-body">
+          <input type="hidden" id="adminVehicleId">
+          <div class="form-group">
+            <label for="adminCarNameInput">Full Vehicle Name (Brand + Model)</label>
+            <input type="text" id="adminCarNameInput" placeholder="e.g. Mahindra XUV700 AX7" required>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="adminCarTypeSelect">Segment Type</label>
+              <select id="adminCarTypeSelect">
+                <option value="Hatchback">Hatchback</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="MUV">MUV</option>
+                <option value="Luxury">Luxury</option>
+                <option value="EV">EV</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="adminCarConditionSelect">Condition</label>
+              <select id="adminCarConditionSelect">
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Needs Service">Needs Service</option>
+                <option value="Maintenance">Maintenance</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="adminCarDailyRate">Daily Rental Rate (₹)</label>
+              <input type="number" id="adminCarDailyRate" min="500" max="50000" value="1800" required>
+            </div>
+            <div class="form-group">
+              <label for="adminCarPerKmRate">Per-Km Rate (₹)</label>
+              <input type="number" id="adminCarPerKmRate" min="1" max="100" value="10" required>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="adminCarDriverDaily">Driver Fee / Day (₹)</label>
+              <input type="number" id="adminCarDriverDaily" min="0" max="5000" value="750" required>
+            </div>
+            <div class="form-group">
+              <label for="adminCarSeatsInput">Seats</label>
+              <input type="number" id="adminCarSeatsInput" min="2" max="10" value="5" required>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="adminCarFuelSelect">Fuel Type</label>
+              <select id="adminCarFuelSelect">
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="EV">EV</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="CNG">CNG</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="adminCarTransSelect">Transmission</label>
+              <select id="adminCarTransSelect">
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adminCarImageInput">Photo URL (Optional, defaults to verified photograph)</label>
+            <input type="url" id="adminCarImageInput" placeholder="https://images.unsplash.com/... or assets/cars/tata.svg">
+          </div>
+          <button type="submit" class="btn-primary btn-full">Save Vehicle to Fleet</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SDC SYSTEM ARCHITECTURE & MODULES MODAL -->
+  <div class="modal-backdrop hidden" id="systemSpecsModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge blue">SDC Capstone Project</span>
+          <h2>Business System & Architecture</h2>
+        </div>
+        <button class="modal-close-btn" id="closeSystemSpecsModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="specs-grid">
+          <div class="specs-card">
+            <div class="specs-icon">🏢</div>
+            <h3>1. Business System</h3>
+            <p><strong>DriveEasy – Smart Indian Car Rental System</strong>: An end-to-end multi-tier car rental marketplace connecting customers to 102+ verified vehicles across India with automated road distance calculation, transparent pricing with 5% GST, and self-drive/driver options.</p>
+          </div>
+          <div class="specs-card">
+            <div class="specs-icon">⚡</div>
+            <h3>2. Technology Stack</h3>
+            <p>Built strictly with <strong>Pure HTML5, CSS3, and Vanilla JavaScript (ES6+)</strong>. Zero external libraries, zero frameworks (no React, no Node backend needed to run). 100% lightweight and portable.</p>
+          </div>
+          <div class="specs-card">
+            <div class="specs-icon">👤</div>
+            <h3>3. User Module</h3>
+            <p><strong>Customer Portal</strong>:</p>
+            <ul class="specs-list">
+              <li>Customer Registration with 10-digit Indian phone format (<code>^[6-9]\d{9}$</code>)</li>
+              <li>Local Storage authentication (<code>driveeasy_users</code>, <code>driveeasy_session</code>)</li>
+              <li>Live Indian road distance calculator across 80+ cities</li>
+              <li>102 real car inventory categorized by company (Tata, Mahindra, Maruti Suzuki, etc.)</li>
+              <li>Transparent billing formula & date conflict collision protection</li>
+              <li>Customer personal dashboard with trip history & cancellations</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <div class="specs-icon">🛡️</div>
+            <h3>4. Admin Module</h3>
+            <p><strong>Operations Command Centre</strong>:</p>
+            <ul class="specs-list">
+              <li>Dedicated restricted administrative authentication (<code>admin@driveeasy.in</code>)</li>
+              <li>Fleet Inventory Management: Full CRUD (Add, Edit, Delete, Toggle Availability)</li>
+              <li>HTML5 Canvas Dynamic Vehicle Condition Doughnut Chart (real-time updates)</li>
+              <li>Centralized booking lifecycle management (Confirmed, Active, Completed, Cancelled)</li>
+              <li>Customer directory with aggregated spending analytics</li>
+            </ul>
+          </div>
+          <div class="specs-card">
+            <div class="specs-icon">📐</div>
+            <h3>5. UI Layout (CSS Grid & Flexbox)</h3>
+            <p>All UI templates utilize <strong>CSS Grid</strong> (e.g. <code>grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))</code> for cars catalog, portal cards, metrics) and <strong>Flexbox</strong> (for navigation, car specs, action bars, invoice summaries, and filter bars).</p>
+          </div>
+          <div class="specs-card">
+            <div class="specs-icon">🔄</div>
+            <h3>6. Redirection & Navigation</h3>
+            <p>Module-wise redirection handled dynamically using JavaScript (<code>showScreen('entry')</code>, <code>showScreen('main')</code>, <code>showScreen('customer')</code>, <code>showScreen('admin')</code>) preserving state without page reloads.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="systemSpecsOkBtn">Close Architecture Info</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST NOTIFICATIONS -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- CORE DATA & SERVICE MODULES -->
+  <script src="data/carsData.js"></script>
+  <script src="data/seedData.js"></script>
+  <script src="services/storageService.js"></script>
+  <script src="services/locationService.js"></script>
+  <script src="services/pricingService.js"></script>
+  <script src="services/bookingService.js"></script>
+  <script src="services/authService.js"></script>
+  <script src="services/carService.js"></script>
+  <!-- MAIN APPLICATION CONTROLLER -->
+  <script src="script.js"></script>
+</body>
+</html>
